@@ -9,8 +9,8 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python. 
   
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Zack Watson.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -98,7 +98,7 @@ def draw_squares_from_circle(n, circle, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -111,6 +111,18 @@ def draw_squares_from_circle(n, circle, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+
+    circle.attach_to(window)
+    window.render()
+    rad = circle.radius
+    cent = circle.center
+    for _ in range(n):
+        corn1 = rg.Point(cent.x - rad, cent.y - rad)
+        corn2 = rg.Point(cent.x + rad, cent.y + rad)
+        rect = rg.Rectangle(corn1, corn2)
+        rect.attach_to(window)
+        window.render(1)
+        cent = corn2
 
 
 def run_test_draw_circles_from_rectangle():
@@ -281,6 +293,16 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+
+    rectangle1.attach_to(window)
+    rectangle2.attach_to(window)
+    window.render(1)
+    point1 = rectangle1.get_center()
+    point2 = rectangle2.get_center()
+    centerline = rg.Line(point1, point2)
+
+    centerline.attach_to(window)
+    window.render(1)
 
 
 # ----------------------------------------------------------------------
