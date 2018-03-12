@@ -182,14 +182,13 @@ def draw_lines(n, point, window):
     ####################################################################
     # ------------------------------------------------------------------
 
-    pointsx = point.x + 100
+    point2x = point.x + 100
     spacing = 200 / (n-1)
     accum = 0
 
     for _ in range(n):
-        point1 = rg.Point(point.x, point.y - 100 + accum)
-        point2 = rg.Point(pointsx, point1.y)
-        line = rg.Line(point1, point2)
+        point2 = rg.Point(point2x, point.y - 100 + accum)
+        line = rg.Line(point, point2)
         line.attach_to(window)
         window.render(1)
         accum = accum + spacing
