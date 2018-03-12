@@ -243,6 +243,7 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     rectangle.attach_to(window)
     height = rectangle.get_height()
     width = rectangle.get_width()
+    window.render(1)
     top_left = rectangle.get_upper_left_corner()
     left_rad = height / 2
     top_rad = width / 2
